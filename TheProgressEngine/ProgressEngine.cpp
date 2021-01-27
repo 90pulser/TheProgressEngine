@@ -36,7 +36,7 @@ void ProgressEngine::Run()
 
 bool ProgressEngine::GetIsRunning()
 {
-	return false;
+	return isRunning;
 }
 
 void ProgressEngine::Update(const float deltaTime_)
@@ -45,8 +45,16 @@ void ProgressEngine::Update(const float deltaTime_)
 
 void ProgressEngine::Render()
 {
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	//CALL GAME RENDER
+	SDL_GL_SwapWindow(window->GetWindow());
 }
 
 void ProgressEngine::OnDestroy()
 {
+	delete window;
+	window = nullptr;
+	SDL_Quit();
+	exit(0);
 }
