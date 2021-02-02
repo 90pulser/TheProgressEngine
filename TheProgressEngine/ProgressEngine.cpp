@@ -1,20 +1,30 @@
 #include "ProgressEngine.h"
 
+std::unique_ptr<ProgressEngine> ProgressEngine::instancedEngine = nullptr;
+
 ProgressEngine::ProgressEngine() : window(nullptr), isRunning(false)
 {
-	window = nullptr;
-	isRunning = false;
+
 }
 
 ProgressEngine::~ProgressEngine()
 {
-	OnDestroy();
+}
+
+ProgressEngine* ProgressEngine::GetInstance()
+{
+	if (instancedEngine.get() == nullptr)
+	{
+		instancedEngine.reset(new ProgressEngine);
+	}
+	return instancedEngine.get();
 }
 
 bool ProgressEngine::OnCreate(std::string name_, int width_, int height_)
 {
 	window = new Window();
-	if (!window->OnCreate(name_, width_, height_)) {
+	if (!window->OnCreate(name_, width_, height_)) 
+	{
 		std::cout << "Window failed to initialize!" << std::endl;
 		OnDestroy();
 		return isRunning = false;
