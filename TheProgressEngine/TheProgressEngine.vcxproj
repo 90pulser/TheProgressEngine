@@ -143,12 +143,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="ProgressEngine.cpp" />
-    <ClCompile Include="Window.cpp" />
+    <ClCompile Include="Engine\Core\ProgressEngine.cpp" />
+    <ClCompile Include="Engine\Core\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ProgressEngine.h" />
-    <ClInclude Include="Window.h" />
+    <ClInclude Include="Engine\Core\ProgressEngine.h" />
+    <ClInclude Include="Engine\Core\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

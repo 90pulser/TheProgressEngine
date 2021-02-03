@@ -27,18 +27,18 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Window.cpp">
+    <ClCompile Include="Engine\Core\ProgressEngine.cpp">
       <Filter>Engine\Core</Filter>
     </ClCompile>
-    <ClCompile Include="ProgressEngine.cpp">
+    <ClCompile Include="Engine\Core\Window.cpp">
       <Filter>Engine\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Window.h">
+    <ClInclude Include="Engine\Core\Window.h">
       <Filter>Engine\Core</Filter>
     </ClInclude>
-    <ClInclude Include="ProgressEngine.h">
+    <ClInclude Include="Engine\Core\ProgressEngine.h">
       <Filter>Engine\Core</Filter>
     </ClInclude>
   </ItemGroup>
