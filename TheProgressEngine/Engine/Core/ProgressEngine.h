@@ -1,8 +1,12 @@
 #ifndef PROGRESSENGINE_H
 #define PROGRESSENGINE_H
 
-#include "Window.h"
 #include <memory>
+#include "Window.h"
+#include "Timer.h"
+#include "DebugLog.h"
+#include "GameBase.h"
+#include "Scene.h"
 
 class ProgressEngine
 {
@@ -25,8 +29,16 @@ public:
 	//Uses the update function while isRunning = true, and calls OnDestroy once isRunning = false
 	void Run();
 
+	void Exit();
+
 	//Takes the isRunning boolean and returns it for the run function
-	bool GetIsRunning();
+	bool GetIsRunning() const;
+
+	int GetCurrentScene() const;
+
+	void SetGameBase(GameBase* gameBase_);
+
+	void SetCurrentScene(int sceneNum_);
 
 private:
 	ProgressEngine();
@@ -45,6 +57,13 @@ private:
 
 	//Checks to make sure if our engine is running
 	bool isRunning;
+
+	Timer* timer;
+	unsigned int fps;
+
+	GameBase* gameBase;
+
+	int currentSceneNum;
 
 };
 #endif // !PROGRESSENGINE_H
