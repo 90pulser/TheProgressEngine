@@ -50,7 +50,7 @@ void GameTest::BuildScene()
 
     currentSceneNum = ProgressEngine::GetInstance()->GetCurrentScene();
     if (!currentScene->OnCreate()) {
-        std::cout << "Scene failed to be created" << std::endl;
+        DebugLog::FatalError("Scene failed to be created", "GameTest.cpp", __LINE__);
         ProgressEngine::GetInstance()->Exit();
     }
 }

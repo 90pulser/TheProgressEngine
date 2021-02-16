@@ -27,14 +27,14 @@ bool ProgressEngine::OnCreate(std::string name_, int width_, int height_)
 	window = new Window();
 	if (!window->OnCreate(name_, width_, height_)) 
 	{
-		std::cout << "Window failed to initialize!" << std::endl;
+		DebugLog::FatalError("Window failed to initialize", "ProgressEngine.cpp", __LINE__);
 		OnDestroy();
 		return isRunning = false;
 	}
 
 	if (gameBase) {
 		if (!gameBase->OnCreate()) {
-			std::cout << "Game failed to initialize" << std::endl;
+			DebugLog::FatalError("Game failed to initialize", "ProgressEngine.cpp", __LINE__);
 			OnDestroy();
 			return isRunning = false;
 		}

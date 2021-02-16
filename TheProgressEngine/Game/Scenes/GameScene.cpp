@@ -13,7 +13,7 @@ GameScene::~GameScene()
 
 bool GameScene::OnCreate()
 {
-    std::cout << "game scene" << std::endl;
+    DebugLog::Info("game scene", "GameScene.cpp", __LINE__);
 
     Vertex v;
     std::vector<Vertex> vertexList;

@@ -6,7 +6,7 @@ int main(int argc, char* argv[]) {
 
 	if (!ProgressEngine::GetInstance()->OnCreate("Progress Engine", 800, 600))
 	{
-		std::cout << "Engine failed to initialize!" << std::endl;
+		DebugLog::FatalError("Engine failed to initialize!", "Main.cpp", __LINE__);
 		return 0;
 	}
 	
