@@ -8,6 +8,8 @@
 #include "GameBase.h"
 #include "Scene.h"
 
+#include "../Rendering/3D/GameObject.h"
+
 class ProgressEngine
 {
 
