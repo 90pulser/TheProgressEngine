@@ -32,6 +32,10 @@ bool ProgressEngine::OnCreate(std::string name_, int width_, int height_)
 		return isRunning = false;
 	}
 
+	ShaderHandler::GetInstance()->CreateProgram("colourShader",
+		"Engine/Shaders/ColourVertexShader.glsl",
+		"Engine/Shaders/ColourFragmentShader.glsl");
+
 	if (gameBase) {
 		if (!gameBase->OnCreate()) {
 			DebugLog::FatalError("Game failed to initialize", "ProgressEngine.cpp", __LINE__);
@@ -104,6 +108,8 @@ void ProgressEngine::Render()
 
 void ProgressEngine::OnDestroy()
 {
+	ShaderHandler::GetInstance()->OnDestroy();
+	
 	delete gameBase;
 	gameBase = nullptr;
 
