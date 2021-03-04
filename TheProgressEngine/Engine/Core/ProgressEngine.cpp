@@ -3,7 +3,7 @@
 std::unique_ptr<ProgressEngine> ProgressEngine::instancedEngine = nullptr;
 
 ProgressEngine::ProgressEngine() : window(nullptr), isRunning(false), fps(60), 
-timer(nullptr), gameBase(nullptr), currentSceneNum(0)
+timer(nullptr), gameBase(nullptr), currentSceneNum(0), camera(nullptr)
 {
 
 }
@@ -78,6 +78,21 @@ int ProgressEngine::GetCurrentScene() const
 	return currentSceneNum;
 }
 
+float ProgressEngine::GetScreenWidth() const
+{
+	return static_cast<float>(window->GetWidth());
+}
+
+float ProgressEngine::GetScreenHeight() const
+{
+	return static_cast<float>(window->GetHeight());
+}
+
+Camera* ProgressEngine::GetCamera() const
+{
+	return camera;
+}
+
 void ProgressEngine::SetGameBase(GameBase* gameBase_)
 {
 	gameBase = gameBase_;
@@ -86,6 +101,11 @@ void ProgressEngine::SetGameBase(GameBase* gameBase_)
 void ProgressEngine::SetCurrentScene(int sceneNum_)
 {
 	currentSceneNum = sceneNum_;
+}
+
+void ProgressEngine::SetCamera(Camera* camera_)
+{
+	camera = camera_;
 }
 
 void ProgressEngine::Update(const float deltaTime_){
@@ -112,6 +132,12 @@ void ProgressEngine::OnDestroy()
 	
 	delete gameBase;
 	gameBase = nullptr;
+
+	delete camera;
+	camera = nullptr;
+
+	delete timer;
+	timer = nullptr;
 
 	delete window;
 	window = nullptr;

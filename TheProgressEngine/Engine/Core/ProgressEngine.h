@@ -12,6 +12,8 @@
 
 #include "../Graphics/ShaderHandler.h"
 
+#include "../Camera/Camera.h"
+
 class ProgressEngine
 {
 
@@ -40,9 +42,17 @@ public:
 
 	int GetCurrentScene() const;
 
+	float GetScreenWidth() const;
+
+	float GetScreenHeight() const;
+
+	Camera* GetCamera() const;
+
 	void SetGameBase(GameBase* gameBase_);
 
 	void SetCurrentScene(int sceneNum_);
+
+	void SetCamera(Camera* camera_);
 
 private:
 	ProgressEngine();
@@ -68,6 +78,8 @@ private:
 	GameBase* gameBase;
 
 	int currentSceneNum;
+
+	Camera* camera;
 
 };
 #endif // !PROGRESSENGINE_H
