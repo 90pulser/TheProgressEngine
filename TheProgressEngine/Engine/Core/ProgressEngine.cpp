@@ -111,7 +111,6 @@ void ProgressEngine::SetCamera(Camera* camera_)
 void ProgressEngine::Update(const float deltaTime_){
 	if (gameBase) {
 		gameBase->Update(deltaTime_);
-		std::cout << deltaTime_ << std::endl;
 	}
 }
 
