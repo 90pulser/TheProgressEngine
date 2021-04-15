@@ -26,5 +26,5 @@ private:
 	std::vector<unsigned int> indices, normalIndices, textureIndices;
 	std::vector<Vertex> meshVertices;
 	GLuint currentTexture;
-}
+};
 #endif // !LOADOBJMODEL_H

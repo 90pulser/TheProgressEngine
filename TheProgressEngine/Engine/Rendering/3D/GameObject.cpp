@@ -63,7 +63,7 @@ void GameObject::SetPosition(glm::vec3 position_)
 {
 	position = position_;
 	if (model) {
-		modelInstance = model->CreateInstance(position, angle, rotation, scale);
+		model->UpdateInstance(modelInstance, position, angle, rotation, scale);
 	}
 }
 
@@ -71,7 +71,7 @@ void GameObject::SetAngle(float angle_)
 {
 	angle = angle_;
 	if (model) {
-		modelInstance = model->CreateInstance(position, angle, rotation, scale);
+		model->UpdateInstance(modelInstance, position, angle, rotation, scale);
 	}
 }
 
@@ -79,7 +79,7 @@ void GameObject::SetRotation(glm::vec3 rotation_)
 {
 	rotation = rotation_;
 	if (model) {
-		modelInstance = model->CreateInstance(position, angle, rotation, scale);
+		model->UpdateInstance(modelInstance, position, angle, rotation, scale);
 	}
 }
 
@@ -87,6 +87,6 @@ void GameObject::SetScale(glm::vec3 scale_)
 {
 	scale = scale_;
 	if (model) {
-		modelInstance = model->CreateInstance(position, angle, rotation, scale);
+		model->UpdateInstance(modelInstance, position, angle, rotation, scale);
 	}
 }

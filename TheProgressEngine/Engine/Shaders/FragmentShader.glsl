@@ -10,5 +10,5 @@ out vec4 fColour;
 
 void main(){
 	fColour = texture(inputTexture, TexCoords);
-	fColour = texture(material.diffuseMap, TexCoords);
+	//fColour = texture(material.diffuseMap, TexCoords);
 }

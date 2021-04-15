@@ -249,7 +249,7 @@ bool GameScene::OnCreate()
     subMesh.vertexList = vertexList;
     subMesh.textureID = TextureHandler::GetInstance()->GetTexture("CheckerboardTexture");
     model->AddMesh(new Mesh(subMesh,
-        ShaderHandler::GetInstance()->GetShader("basicShader")));
+        ShaderHandler::GetInstance()->GetShader("defaultShader")));
     //model->SetScale(glm::vec3(0.5f));
     shape = new GameObject(model);
 
