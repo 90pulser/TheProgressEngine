@@ -34,7 +34,8 @@ private:
 	GLuint VAO, VBO;
 	SubMesh subMesh;
 	GLuint shaderProgram;
-	GLuint modelLoc, viewLoc, projectionLoc, textureLoc;
+	GLuint modelLoc, viewLoc, projectionLoc, textureLoc,
+		cameraPositionLoc, lightPosLoc, lightAmbientLoc, lightDiffuseLoc, lightSpecularLoc, lightColourLoc;
 
 };
 #endif // !MESH_H

@@ -1,9 +1,10 @@
 #ifndef MODEL_H
 #define MODEL_H
 
-#include "Mesh.h"
+
 #include <glm/gtc/matrix_transform.hpp>
 #include <string>
+#include "LoadOBJModel.h"
 
 class Model
 {
@@ -25,5 +26,6 @@ private:
 	std::vector<Mesh*> meshes;
 	GLuint shaderProgram;
 	std::vector<glm::mat4> modelInstances;
+	LoadOBJModel* obj;
 };
 #endif // !MODEL_H

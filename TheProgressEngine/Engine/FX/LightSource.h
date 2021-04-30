@@ -18,12 +18,14 @@ public:
 	float getSpecular() const;
 	glm::vec3 getLightPos() const;
 	glm::vec3 getLightColour() const;
+
+	LightSource(glm::vec3 lightPos_, float ambient_, float diffuse_, 
+		float specular_, glm::vec3 lightColour_);
+	~LightSource();
 private:
 	float ambient, diffuse, specular;
 	glm::vec3 lightPos, lightColour;
-	LightSource(float ambient_, float diffuse_, float specular_,
-		glm::vec3 lightPos_, glm::vec3 lightColour_);
-	~LightSource();
+	
 };
 
 #endif // !LIGHTSOURCE_H

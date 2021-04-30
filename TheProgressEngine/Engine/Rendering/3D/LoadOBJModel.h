@@ -11,7 +11,7 @@ public:
 	~LoadOBJModel();
 
 	void LoadModel(const std::string& objFilePath_,
-		const std::string& mtlFilePath);
+		const std::string& mtlFilePath_);
 	std::vector<SubMesh> GetSubMeshes();
 
 private:
@@ -25,6 +25,7 @@ private:
 	std::vector<glm::vec2> textureCoords;
 	std::vector<unsigned int> indices, normalIndices, textureIndices;
 	std::vector<Vertex> meshVertices;
+	std::vector<SubMesh> subMeshes;
 	GLuint currentTexture;
 };
 #endif // !LOADOBJMODEL_H

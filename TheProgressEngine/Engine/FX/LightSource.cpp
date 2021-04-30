@@ -1,7 +1,7 @@
 #include "LightSource.h"
 
-LightSource::LightSource(float ambient_, float diffuse_, float specular_,
-	glm::vec3 lightPos_, glm::vec3 lightColour_) : ambient(0), diffuse(0),
+LightSource::LightSource(glm::vec3 lightPos_, float ambient_, float diffuse_, float specular_,
+	 glm::vec3 lightColour_) : ambient(0), diffuse(0),
 	specular(0), lightPos(glm::vec3()), lightColour(glm::vec3())
 {
 	setAmbient(ambient_);

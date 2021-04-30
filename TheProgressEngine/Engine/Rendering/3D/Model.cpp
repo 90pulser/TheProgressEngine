@@ -1,9 +1,16 @@
 #include "Model.h"
 
 Model::Model(const std::string& objPath_, const std::string& matPath_, GLuint shaderProgram_)
-	:meshes(std::vector<Mesh*>()), shaderProgram(0), modelInstances(std::vector<glm::mat4>())
+	:meshes(std::vector<Mesh*>()), shaderProgram(0), modelInstances(std::vector<glm::mat4>()),
+	obj(nullptr)
 {
 		shaderProgram = shaderProgram_;
+		meshes.reserve(10);
+		modelInstances.reserve(5);
+		obj = new LoadOBJModel();
+		obj->LoadModel(objPath_, matPath_);
+		LoadModel();
+
 }
 
 Model::~Model()
@@ -60,6 +67,11 @@ glm::mat4 Model::CreateTransform(glm::vec3 position_, float angle_, glm::vec3 ro
 
 void Model::LoadModel()
 {
+	for (int i = 0; i < obj->GetSubMeshes().size(); i++) {
+		meshes.push_back(new Mesh(obj->GetSubMeshes()[i], shaderProgram));
+	}
+	delete obj;
+	obj = nullptr;
 }
 
 
