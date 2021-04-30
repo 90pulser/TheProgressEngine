@@ -1,16 +1,13 @@
 #include "GameScene.h"
 
-GameScene::GameScene() : shape(nullptr)
+GameScene::GameScene()
 {
 
 }
 
 GameScene::~GameScene()
 {
-    model = nullptr;
 
-    delete shape;
-    shape = nullptr;
 }
 
 bool GameScene::OnCreate()
@@ -23,21 +20,25 @@ bool GameScene::OnCreate()
         0.1f, 0.5f, 0.5f,
         glm::vec3(1.0f, 1.0f, 1.0f)));
 
-    model = new Model("Resources/Models/Dice.obj",
+    Model* diceModel = new Model("Resources/Models/Dice.obj",
         "Resources/Materials/Dice.mtl",
         ShaderHandler::GetInstance()->GetShader("defaultShader"));
     //model->SetScale(glm::vec3(0.5f));
-    shape = new GameObject(model);
+    SceneGraph::GetInstance()->AddModel(diceModel);
+
+    SceneGraph::GetInstance()->AddGameObject(new GameObject(diceModel, glm::vec3(-2.0f, 0.0f, -2.0f)));
+
+    diceModel = nullptr;
 
     return true;
 }
 
 void GameScene::Update(const float deltaTime_)
 {
-    shape->Update(deltaTime_);
+    SceneGraph::GetInstance()->Update(deltaTime_);
 }
 
 void GameScene::Render()
 {
-    shape->Render(ProgressEngine::GetInstance()->GetCamera());
+    SceneGraph::GetInstance()->Render(ProgressEngine::GetInstance()->GetCamera());
 }
